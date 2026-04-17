@@ -1,1 +1,883 @@
+:root {
+  --primary: #7f5af0;
+  --secondary: #2cb67d;
+  --accent: #ff8906;
+  --dark: #0f172a;
+  --glass: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.15);
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: #fff;
+  overflow-x: hidden;
+}
+* {
+  transition: all 0.35s ease;
+}
 
+/*====================== NAVBAR UPGRADE ===================*/
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.6rem;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-text {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* NAVBAR BUTTON STYLE */
+.nav-btn {
+  border-radius: 25px;
+  padding: 6px 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.name{
+  color: white;
+}
+
+/* ===================== GRADIENT BUTTON ========================= */
+
+.btn-gradient {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  border: none;
+  color: white;
+  border-radius: 35px;
+  box-shadow: 0 8px 20px rgba(255, 100, 100, 0.4);
+  transition: all 0.55s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 100, 100, 0.5);
+}
+/* ================= HERO ================= */
+.hero {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)),
+    url("/images/kids.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 3px;
+
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  background-size: 300% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shineText 4s linear infinite, fadeUp 1s ease;
+}
+
+/* glowing aura behind text */
+.hero-title::after {
+  content: "Find Your Perfect PG";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  color: rgba(255,255,255,0.08);
+  filter: blur(25px);
+}
+.hero-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-top: 10px;
+  animation: fadeUp 1.5s ease;
+   color: #fff;
+} 
+
+
+/* ================= CITY CARDS ================= */
+
+/* CITY CARD */
+.city-card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 25px;
+  overflow: hidden;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: floatCard 2s ease-in-out infinite;
+}
+
+.city-card:hover {
+  box-shadow: 0 7px 8px rgba(255, 100, 100, 0.4),
+              0 0 7px rgba(0, 198, 255, 0.3);
+}
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+.city-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.city-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.6);
+}
+
+/* OVERLAY TEXT */
+.city-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.city-name {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🔥 PAGE TITLE (CITY NAME) */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: fadeUp 0.8s ease;
+}
+
+
+/* ==================== Boooking Modal ====================*/
+
+.pg-card button {
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ HOVER EFFECT */
+.pg-card button:hover {
+  transform: translate(-2px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ⚡ CLICK EFFECT */
+.pg-card button:active {
+  transform: scale(0.96);
+}
+
+/* 🌊 SHINE EFFECT */
+.pg-card button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.pg-card button:hover::after {
+  left: 100%;
+}
+
+/* ================= PG CARD ================= */
+.pg-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.pg-card:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+
+.pg-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 1px;
+  background: linear-gradient(45deg, #ff6a00, #ee0979, #00c6ff);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  pointer-events: none; 
+}
+
+.pg-card:hover::before {
+  opacity: 7;
+}
+
+/* ================= LOADER ================= */
+
+.loader-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #0f172a, #020617);
+}
+.loader-container h3
+{
+  color: #fff;
+}
+.loader-ring {
+  width: 70px;
+  height: 70px;
+  border: 6px solid rgba(255, 255, 255, 0.1);
+  border-top: 6px solid #00c6ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ================= MODALS ================= */
+
+.modal-custom {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.modal input {
+  border-radius: 12px;
+  padding: 10px;
+  border: none;
+}
+
+/* ================= BUTTON ================= */
+
+/* 🔥========= MODAL BUTTON SMOOTH EFFECT ============== */
+.modal button {
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ HOVER EFFECT */
+.modal button:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ⚡ CLICK EFFECT */
+.modal button:active {
+  transform: scale(0.96);
+}
+
+/* 🌊 SHINE EFFECT */
+.modal button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.modal button:hover::after {
+  left: 100%;
+}
+
+.heart {
+  font-size: 26px;
+}
+.heart:hover {
+  transform: scale(1.4) rotate(8deg);
+} 
+
+/* 🔥 BOOKING MODAL UPGRADE */
+/* 🔥 BOOKING SUMMARY */
+.booking-summary {
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+.booking-modal h3{
+   background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* 💳 PAYMENT OPTIONS */
+.payment-options {
+  display: flex;
+  gap: 10px;
+}
+
+.pay-box {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+/* 🔥 ACTIVE PAYMENT */
+.pay-box.active {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  border: 1px solid #fff;
+  transform: scale(1.05);
+}
+
+/* HOVER */
+.pay-box:hover {
+  transform: scale(1.05);
+}
+
+/*================ FOOTER PREMIUM ==============*/
+
+.footer {
+  margin-top: 100px;
+  padding: 70px 20px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #020617, #0f172a);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* animated gradient line */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  animation: moveLine 4s linear infinite;
+}
+
+@keyframes moveLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.footer-tagline {
+  margin: 10px 0;
+  opacity: 0.8;
+   color: #fff;
+}
+.copyright
+{
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 15px 0;
+  color: #fff;
+}
+
+.footer-links span a{
+  text-decoration: none;
+  font-size: 18px;
+ background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+/* ================= TEXT VISIBILITY FIX ================= */
+
+/* ================= 🔥 INSANE DASHBOARD ================= */
+
+
+.dashboard-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  padding: 20px;
+} 
+/* Glass + glow card */
+.fancy-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.fancy-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 80px rgba(255, 100, 100, 0.25);
+}
+
+/* glowing border animation */
+.fancy-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff6a00, #ee0979, #00c6ff, #ff6a00);
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.fancy-card:hover::after {
+  opacity: 1;
+  animation: borderGlow 4s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% }
+  100% { background-position: 300% }
+}
+
+/* gradient heading */
+.gradient-text {
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shineText 3s linear infinite;
+}
+
+/* rows (name + price) */
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* price highlight */
+.price {
+  font-weight: 600;
+  color: #00c6ff;
+}
+
+/* booking block */
+.booking-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+/* sub text */
+.sub-text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* glowing text */
+.text-glow {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7),
+               0 0 25px rgba(255,100,100,0.6);
+}
+
+/* fix headings visibility */
+.dashboard-card h4,
+.dashboard-card h5 {
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* animation */
+@keyframes shineText {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #1e293b, #020617);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transition: 0.4s;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #00c6ff;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(255,100,100,0.4);
+}
+
+.hover-row {
+  transition: 0.3s;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.hover-row:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateX(5px);
+}
+
+.dashboard-header h2 {
+  font-size: 2.2rem;
+}
+
+.dashboard-header p {
+  margin-top: 5px;
+}
+
+/* ================= 🔥 INTERACTIVE PG CARD ================= */
+
+
+/* ⭐ RATING STARS */
+.rating {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin: 6px 0 12px;
+
+  /* 🔥 premium gradient stars */
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: starShine 3s linear infinite;
+}
+
+/* ✨ glowing animation */
+@keyframes starShine {
+  0% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 2px #ffd700);
+  }
+  50% {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 10px #ff8c00);
+  }
+  100% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 2px #ffd700);
+  }
+}
+
+/* 🧠 FEATURE TOOLTIP */
+.feature-tooltip {
+  position: relative;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.feature-label {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 8px;
+
+  /* 🎯 SAME GRADIENT AS BUTTON */
+  background: linear-gradient(90deg, #ff6a00, #ff2d55, #ff007f);
+  border: none;
+  transition: all 0.25s ease;
+}
+
+/* hover */
+.feature-label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 80, 80, 0.4);
+}
+
+/* HIDDEN BOX */
+.feature-box {
+  position: absolute;
+  bottom: 120%;
+  left: 0;
+  width: 260px;
+  padding: 12px;
+  border-radius: 15px;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+/* SHOW ON HOVER */
+.feature-tooltip:hover .feature-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT STYLE */
+.feature-box p {
+  font-size: 0.85rem;
+  margin: 4px 0;
+  color: #fff;
+}
+
+/* 3D perspective */
+.pg-interactive {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* smooth tilt */
+.pg-interactive:hover {
+  transform: rotateX(4deg) rotateY(-4deg) scale(1.02);
+}
+
+/* MAKE CAROUSEL RELATIVE */
+.carousel {
+  position: relative;
+}
+
+/* FIX BUTTON POSITION */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute !important;   /* ✅ force override */
+
+  top: 50% !important;
+  bottom: auto !important;         /* ❌ remove bootstrap stretch */
+
+  
+  width: 45px;
+  height: 45px;
+
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* LEFT */
+.carousel-control-prev {
+  left: 8px;
+}
+
+.carousel-control-next {
+  right: 8px;
+}
+/* ICON */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 15px;
+  height: 15px;
+}
+/* FIX CAROUSEL SIZE */
+.card-img {
+  height: 100%;        /* ✅ instead of max-height */
+  width: 100%;
+  object-fit: contain; /* or cover if you want full fill */
+}
+
+/* FIX INNER OVERFLOW */
+.carousel-inner {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* OPTIONAL: smoother slide */
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+/* IMAGE WRAPPER */
+.img-wrapper {
+  height: 230px;
+  position: relative;   /* ✅ ADD THIS */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* IMAGE ZOOM */
+.img-wrapper img {
+  transition: transform 0.6s ease, filter 0.7s ease;
+}
+
+.pg-card:hover .img-wrapper img {
+  transform: scale(1.12);
+  filter: brightness(0.7);
+}
+
+.pg-card:hover .img-wrapper::after {
+  opacity: 1;
+}
+
+/* DARK OVERLAY */
+.img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.pg-interactive:hover .img-wrapper::after {
+  opacity: 1;
+}
+
+/* CARD GLOW */
+.pg-interactive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(255,100,100,0.25),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.pg-interactive:hover::before {
+  opacity: 1;
+}
+
+
+/* TEXT LIFT */
+.pg-interactive h4,
+.pg-interactive p {
+  transition: transform 0.4s ease;
+
+}
+
+.pg-interactive:hover h4 {
+  transform: translateY(-3px);
+}
+
+.pg-interactive:hover p {
+  transform: translateY(-2px);
+}
+
+/* BUTTON FLOAT */
+.pg-interactive button {
+  transition: all 0.35s ease;
+}
+
+.pg-interactive:hover button {
+  transform: translateY(-2px);
+}
+
+.pg-card h4{
+  font-weight: 30px;
+  color: #fff;
+}
+.pg-address,.pg-rent
+{
+  color: #fff;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
